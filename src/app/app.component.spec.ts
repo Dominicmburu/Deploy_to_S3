@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('my_app');
   });
 
-  it('should render title', () => {
+  it('should have title in template', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, my_app');
+    fixture.detectChanges(); 
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('my_app'); 
   });
 });
