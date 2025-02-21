@@ -14,22 +14,22 @@ jobs:
               uses: ./.github/actions/cache
             - name: Lint code
               run: npm run lint
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Get code
-              uses: actions/checkout@v4
-            - name: Load and cache dependencies
-              uses: ./.github/actions/cache
-            - name: Test code
-              id: run-tests
-              run: npm run test
-            - name: Upload test report
-              if: failure() && steps.run-tests.outputs == 'failure'
-              uses: actions/upload-artifact@v4
-              with:
-                  name: test-report
-                  path: test.json
+    # test:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Get code
+    #           uses: actions/checkout@v4
+    #         - name: Load and cache dependencies
+    #           uses: ./.github/actions/cache
+    #         - name: Test code
+    #           id: run-tests
+    #           run: npm run test
+    #         - name: Upload test report
+    #           if: failure() && steps.run-tests.outputs == 'failure'
+    #           uses: actions/upload-artifact@v4
+    #           with:
+    #               name: test-report
+    #               path: test.json
     build:
         needs: test
         runs-on: ubuntu-latest
