@@ -19,6 +19,6 @@ outputs:
     description: 'URL of the deployed website'
 
 runs:
-  using: 'node22'
+  using: 'node16'
   main: 'index.js'
  
